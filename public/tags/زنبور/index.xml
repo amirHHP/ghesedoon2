@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>زنبور on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/%D8%B2%D9%86%D8%A8%D9%88%D8%B1/</link>
+    <description>Recent content in زنبور on My New Hugo Site</description>
+    <generator>Hugo -- 0.146.6</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/tags/%D8%B2%D9%86%D8%A8%D9%88%D8%B1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>زندگی زنبورها و ساخت خانه‌ی آنها .</title>
+      <link>http://localhost:1313/posts/156/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/156/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;bee&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/156.Bee.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;در گوشه‌ای از یک باغ زیبا و پر از گل‌های رنگارنگ، یک کندوی زنبور عسل قرار داشت. این کندو خانه‌ی هزاران زنبور کوچک و پرانرژی بود. هر روز صبح، زنبورها از کندو بیرون می‌رفتند تا شهد گل‌ها را جمع کنند و به خانه‌ی خود برگردند.&lt;/p&gt;
+&lt;p&gt;یکی از این زنبورها، زنبور کوچکی به نام زیزی بود. زیزی بسیار کنجکاو و علاقه‌مند به یادگیری بود. او همیشه می‌خواست بداند چگونه زنبورها خانه‌ی زیبای خود را می‌سازند و چگونه عسل خوشمزه تولید می‌کنند.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

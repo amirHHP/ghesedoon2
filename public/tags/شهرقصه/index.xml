@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>شهرقصه on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/%D8%B4%D9%87%D8%B1%D9%82%D8%B5%D9%87/</link>
+    <description>Recent content in شهرقصه on My New Hugo Site</description>
+    <generator>Hugo -- 0.146.6</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/tags/%D8%B4%D9%87%D8%B1%D9%82%D8%B5%D9%87/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>شهر قصه‌ها - شهری پر از داستان‌های عجیب</title>
+      <link>http://localhost:1313/posts/4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/4/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;magic&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/4.magiccity.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;روزی روزگاری، در دنیایی دور، شهری بود به نام &amp;ldquo;شهر قصه‌ها&amp;rdquo;. این شهر پر از خانه‌هایی بود که هر کدام یک داستان عجیب و جادویی داشتند. هر روز، وقتی خورشید طلوع می‌کرد، کودکان از خواب بیدار می‌شدند و به سراغ خانه‌های قصه‌گو می‌رفتند تا داستان‌های جدید را بشنوند.&lt;/p&gt;
+&lt;p&gt;در گوشه‌ای از شهر، خانه‌ای بود که قصه‌ی &amp;ldquo;خرگوش و لاک‌پشت&amp;rdquo; را تعریف می‌کرد. در این قصه، خرگوش تند و تیز با لاک‌پشت آرام و کند مسابقه می‌دادند. خرگوش با خود فکر کرد که خیلی سریع‌تر از لاک‌پشت است و تصمیم گرفت در وسط مسابقه کمی بخوابد. اما وقتی بیدار شد، دید لاک‌پشت آرام آرام به خط پایان نزدیک شده و برنده شده است! این قصه به کودکان یاد می‌داد که نباید کسی را دست کم گرفت.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

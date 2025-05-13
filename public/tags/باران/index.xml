@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>باران on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/%D8%A8%D8%A7%D8%B1%D8%A7%D9%86/</link>
+    <description>Recent content in باران on My New Hugo Site</description>
+    <generator>Hugo -- 0.146.6</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/tags/%D8%A8%D8%A7%D8%B1%D8%A7%D9%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>بارش باران و تاثیر آن بر زندگی گیاهان و حیوانات .</title>
+      <link>http://localhost:1313/posts/159/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/159/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;rainanimal&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/159.rainAnimal.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;در دهکده‌ای کوچک و سرسبز، پسری کوچک به نام کیان زندگی می‌کرد. کیان عاشق طبیعت بود و همیشه دوست داشت در باغ و جنگل‌های اطراف دهکده بازی کند. او همیشه با دقت به گیاهان و حیوانات نگاه می‌کرد و از دیدن زیبایی‌های طبیعت لذت می‌برد.&lt;/p&gt;
+&lt;p&gt;یک روز، وقتی که کیان در حال بازی در باغ بود، آسمان به تدریج تیره شد و ابرهای بزرگی ظاهر شدند. کیان با تعجب به آسمان نگاه کرد و به مادرش گفت: &amp;ldquo;مامان، چرا آسمان تیره شده؟&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
