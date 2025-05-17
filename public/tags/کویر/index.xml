@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>کویر on My New Hugo Site</title>
+    <title>کویر on قصه دون</title>
     <link>http://localhost:1313/tags/%DA%A9%D9%88%DB%8C%D8%B1/</link>
-    <description>Recent content in کویر on My New Hugo Site</description>
-    <generator>Hugo -- 0.146.6</generator>
-    <language>en-us</language>
+    <description>Recent content in کویر on قصه دون</description>
+    <generator>Hugo -- 0.147.3</generator>
+    <language>fa-ir</language>
     <atom:link href="http://localhost:1313/tags/%DA%A9%D9%88%DB%8C%D8%B1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>حیات وحش و کویر - داستانی از حیات وحش و بقای در کویر</title>

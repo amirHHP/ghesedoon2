@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>قصه دون</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content on My New Hugo Site</description>
-    <generator>Hugo -- 0.146.6</generator>
-    <language>en-us</language>
+    <description>Recent content on قصه دون</description>
+    <generator>Hugo -- 0.147.3</generator>
+    <language>fa-ir</language>
+    <lastBuildDate>Wed, 20 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>حمایت مالی</title>
+      <link>http://localhost:1313/donate/</link>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/donate/</guid>
+      <description>&lt;h1 id=&#34;حمایت-مالی-از-قصه-دون&#34;&gt;حمایت مالی از قصه دون&lt;/h1&gt;
+&lt;p&gt;با حمایت مالی شما، می‌توانیم به تولید محتوای بهتر و بیشتر کمک کنیم.&lt;/p&gt;
+&lt;h2 id=&#34;روشهای-حمایت-مالی&#34;&gt;روش‌های حمایت مالی&lt;/h2&gt;
+&lt;h3 id=&#34;درگاه-پرداخت-مستقیم&#34;&gt;درگاه پرداخت مستقیم&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;#&#34;&gt;لینک درگاه پرداخت&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;کارت-به-کارت&#34;&gt;کارت به کارت&lt;/h3&gt;
+&lt;p&gt;شماره کارت: XXXX-XXXX-XXXX-XXXX
+به نام: [نام صاحب حساب]&lt;/p&gt;
+&lt;h3 id=&#34;کریپتو&#34;&gt;کریپتو&lt;/h3&gt;
+&lt;p&gt;آدرس کیف پول: [آدرس کیف پول]&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;از حمایت شما سپاسگزاریم.&lt;/p&gt;</description>
+    </item>
     <item>
       <title> روزهای آفتابی و زیبایی‌های طبیعت</title>
       <link>http://localhost:1313/posts/165/</link>

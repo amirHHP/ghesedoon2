@@ -1,4 +1,23 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = 'https://ghesedoon.ir/'
+languageCode = 'fa-ir'
+title = 'قصه دون'
 theme = 'PaperMod'
+
+[params]
+  defaultTheme = "auto"
+  defaultAppearance = "light"
+  defaultLang = "fa"
+  rtl = true
+  customCSS = ["css/custom.css"]
+
+[[menu.main]]
+  identifier = "tags"
+  name = "برچسب‌ها"
+  url = "/tags/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "donate"
+  name = "حمایت مالی"
+  url = "/donate/"
+  weight = 20
