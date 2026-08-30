@@ -12,9 +12,9 @@ defaultContentLanguageInSubdir = false
 
 [languages]
   [languages.fa]
-    languageName = "فارسی"
-    languageCode = "fa-ir"
-    languageDirection = "rtl"
+    label = "فارسی"
+    locale = "fa-IR"
+    direction = "rtl"
     title = "قصه دون"
     weight = 1
 
@@ -35,9 +35,9 @@ defaultContentLanguageInSubdir = false
       weight = 20
 
   [languages.en]
-    languageName = "English"
-    languageCode = "en"
-    languageDirection = "ltr"
+    label = "English"
+    locale = "en"
+    direction = "ltr"
     title = "Ghesedoon"
     weight = 2
 
