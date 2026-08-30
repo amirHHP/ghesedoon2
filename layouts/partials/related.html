@@ -1,0 +1,15 @@
+{{- if eq .Type "posts" }}
+{{- $related := where (site.RegularPages.Related .) "Type" "posts" | first 4 }}
+{{- with $related }}
+<section class="related-stories">
+    <h2>{{ i18n "related_stories" | default "Related stories" }}</h2>
+    <ul>
+        {{- range . }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{- end }}
+    </ul>
+</section>
+{{- end }}
+{{- end -}}

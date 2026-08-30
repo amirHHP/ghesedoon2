@@ -1,6 +1,4 @@
 /* Vazirmatn for Persian, Nunito for English */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 :root {
     --font-family: 'Vazirmatn', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -13,9 +11,41 @@ body {
     font-family: var(--font-family);
 }
 
-/* Ensure proper font rendering for RTL text */
 * {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-} 
+}
+
+.post-entry .entry-cover img,
+.first-entry .entry-cover img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.first-entry .entry-cover img {
+    height: 320px;
+}
+
+.tag-entry .entry-cover {
+    display: block;
+}
+
+.related-stories {
+    margin-top: 1.5rem;
+}
+
+.related-stories h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+}
+
+.related-stories ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.related-stories li {
+    margin: 0.35rem 0;
+}

@@ -3,12 +3,36 @@ theme = 'PaperMod'
 defaultContentLanguage = 'fa'
 defaultContentLanguageInSubdir = false
 
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[related]
+  includeNewer = true
+  threshold = 60
+  toLower = true
+
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+
+  [[related.indices]]
+    name = "title"
+    weight = 10
+
 [params]
   defaultTheme = "auto"
   defaultAppearance = "light"
-  customCSS = ["css/custom.css"]
   displayFullLangName = true
   mainSections = ["posts"]
+
+  [params.cover]
+    hiddenInSingle = true
+
+  [params.fuseOpts]
+    keys = ["title", "summary"]
+    threshold = 0.3
+    ignorelocation = true
+    minmatchcharlength = 2
 
 [languages]
   [languages.fa]
@@ -21,6 +45,12 @@ defaultContentLanguageInSubdir = false
     [languages.fa.params]
       rtl = true
       description = "قصه‌های کودکانه قصه دون"
+
+    [[languages.fa.menu.main]]
+      identifier = "search"
+      name = "جستجو"
+      url = "/search/"
+      weight = 5
 
     [[languages.fa.menu.main]]
       identifier = "tags"
@@ -44,6 +74,12 @@ defaultContentLanguageInSubdir = false
     [languages.en.params]
       rtl = false
       description = "Children's stories from Ghesedoon"
+
+    [[languages.en.menu.main]]
+      identifier = "search"
+      name = "Search"
+      url = "/search/"
+      weight = 5
 
     [[languages.en.menu.main]]
       identifier = "tags"
