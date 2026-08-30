@@ -1,23 +1,58 @@
 baseURL = 'https://ghesedoon.ir/'
-languageCode = 'fa-ir'
-title = 'قصه دون'
 theme = 'PaperMod'
+defaultContentLanguage = 'fa'
+defaultContentLanguageInSubdir = false
 
 [params]
   defaultTheme = "auto"
   defaultAppearance = "light"
-  defaultLang = "fa"
-  rtl = true
   customCSS = ["css/custom.css"]
+  displayFullLangName = true
+  mainSections = ["posts"]
 
-[[menu.main]]
-  identifier = "tags"
-  name = "برچسب‌ها"
-  url = "/tags/"
-  weight = 10
+[languages]
+  [languages.fa]
+    label = "فارسی"
+    locale = "fa-IR"
+    direction = "rtl"
+    title = "قصه دون"
+    weight = 1
 
-[[menu.main]]
-  identifier = "donate"
-  name = "حمایت مالی"
-  url = "/donate/"
-  weight = 20
+    [languages.fa.params]
+      rtl = true
+      description = "قصه‌های کودکانه قصه دون"
+
+    [[languages.fa.menu.main]]
+      identifier = "tags"
+      name = "برچسب‌ها"
+      url = "/tags/"
+      weight = 10
+
+    [[languages.fa.menu.main]]
+      identifier = "donate"
+      name = "حمایت مالی"
+      url = "/donate/"
+      weight = 20
+
+  [languages.en]
+    label = "English"
+    locale = "en"
+    direction = "ltr"
+    title = "Ghesedoon"
+    weight = 2
+
+    [languages.en.params]
+      rtl = false
+      description = "Children's stories from Ghesedoon"
+
+    [[languages.en.menu.main]]
+      identifier = "tags"
+      name = "Tags"
+      url = "/tags/"
+      weight = 10
+
+    [[languages.en.menu.main]]
+      identifier = "donate"
+      name = "Donate"
+      url = "/donate/"
+      weight = 20
