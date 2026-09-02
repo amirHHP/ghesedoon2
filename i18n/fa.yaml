@@ -1,2 +1,5 @@
 - id: related_stories
   translation: "قصه‌های مشابه"
+
+- id: listen_story
+  translation: "قصه را گوش کن"

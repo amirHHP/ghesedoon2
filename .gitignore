@@ -9,3 +9,10 @@
 
 # Local editor/assistant notes
 WARP.md
+
+# Local Python env for audio generation
+/.venv/
+scripts/__pycache__/
+
+# Local secrets (AI Gateway test key)
+.env.local

@@ -1,0 +1,21 @@
+{{- if eq .Type "posts" }}
+{{- $id := .File.TranslationBaseName }}
+{{- $rel := printf "audio/%s/%s.mp3" .Lang $id }}
+{{- $local := printf "static/%s" $rel }}
+{{- $src := "" }}
+{{- if os.FileExists $local }}
+    {{- $src = $rel | relURL }}
+{{- else if .Params.audio }}
+    {{- $src = .Params.audio | relURL }}
+{{- else if site.Params.audioBaseURL }}
+    {{- $src = printf "%s/%s/%s.mp3" (strings.TrimSuffix site.Params.audioBaseURL "/") .Lang $id }}
+{{- end }}
+{{- if $src }}
+<section class="story-audio" aria-label="{{ i18n "listen_story" | default "Listen to the story" }}">
+    <p class="story-audio-label">{{ i18n "listen_story" | default "Listen to the story" }}</p>
+    <audio controls preload="metadata" src="{{ $src }}">
+        <a href="{{ $src }}">{{ i18n "listen_story" | default "Listen to the story" }}</a>
+    </audio>
+</section>
+{{- end }}
+{{- end -}}

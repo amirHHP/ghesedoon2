@@ -6,7 +6,10 @@
     <ul>
         {{- range . }}
         <li>
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <a class="related-story" href="{{ .RelPermalink }}">
+                {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" false) }}
+                <span class="related-story-title">{{ .Title }}</span>
+            </a>
         </li>
         {{- end }}
     </ul>

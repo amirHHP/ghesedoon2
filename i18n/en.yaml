@@ -1,2 +1,5 @@
 - id: related_stories
   translation: "Related stories"
+
+- id: listen_story
+  translation: "Listen to the story"
