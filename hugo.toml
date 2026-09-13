@@ -20,10 +20,12 @@ defaultContentLanguageInSubdir = false
     weight = 10
 
 [params]
+  env = "production"
   defaultTheme = "auto"
   defaultAppearance = "light"
   displayFullLangName = true
   mainSections = ["posts"]
+  images = ["/og-image.png"]
 
   [params.cover]
     hiddenInSingle = true

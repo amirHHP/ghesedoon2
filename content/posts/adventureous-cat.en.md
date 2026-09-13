@@ -2,7 +2,7 @@
 title = 'The Adventurous Cat - a cat who gets lost in the forest'
 draft = false
 +++
-![cat](/OIG2.jpeg)
+![cat](/cat.jpg)
 
 Once upon a time, in a small, beautiful village, there lived a cat named Pishi. Pishi was a small white cat with bright green eyes who loved adventure. He always wanted to discover new places and find new friends.
 

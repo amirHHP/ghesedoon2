@@ -2,9 +2,11 @@
 {{- $coverImage := .Params.cover.image }}
 {{- $alt := .Params.cover.alt | default .Params.cover.caption | default .Title }}
 {{- if not $coverImage }}
-    {{- with findRE `!\[[^\]]*\]\(([^\s)]+)` .RawContent 1 }}
+    {{- with findRE `!\[[^\]]*\]\(\s*(<[^>]+>|[^"\s)]+)` .RawContent 1 }}
         {{- with index . 0 }}
-            {{- $coverImage = replaceRE `!\[[^\]]*\]\(([^\s)]+).*` `$1` . }}
+            {{- $coverImage = replaceRE `!\[[^\]]*\]\(\s*(<[^>]+>|[^"\s)]+).*` `$1` . }}
+            {{- $coverImage = strings.TrimPrefix "<" $coverImage }}
+            {{- $coverImage = strings.TrimSuffix ">" $coverImage }}
             {{- $extractedAlt := replaceRE `!\[([^\]]*)\].*` `$1` . }}
             {{- if $extractedAlt }}
                 {{- $alt = $extractedAlt }}

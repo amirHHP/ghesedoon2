@@ -1,0 +1,87 @@
+{{- $imgs := slice }}
+{{- $imgParams := .Params.images }}
+{{- $resources := .Resources.ByType "image" -}}
+
+{{/* Priority 1: Check frontmatter cover image if images parameter is empty */}}
+{{- if and (not $imgParams) .Params.cover.image }}
+  {{- $coverImg := .Params.cover.image }}
+  {{- if eq .Params.cover.relative true }}
+    {{- $coverImg = path.Join .RelPermalink $coverImg }}
+  {{- end }}
+  {{- $imgParams = slice $coverImg }}
+{{- end }}
+
+{{/* Priority 2: Check page resources (featured/cover/thumbnail) if images parameter is empty */}}
+{{- if not $imgParams }}
+  {{- $featured := $resources.GetMatch "*feature*" -}}
+  {{- if not $featured }}{{ $featured = $resources.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
+  {{- with $featured }}
+    {{- $imgs = $imgs | append (dict
+      "Image" .
+      "RelPermalink" .RelPermalink
+      "Permalink" .Permalink) }}
+  {{- end }}
+{{- end }}
+
+{{/* Priority 3: Extract image from markdown body (.RawContent) if images parameter is empty */}}
+{{- if and (not $imgParams) (not $imgs) }}
+  {{- with findRE `!\[[^\]]*\]\(\s*(<[^>]+>|[^"\s)]+)` .RawContent 1 }}
+    {{- with index . 0 }}
+      {{- $extracted := replaceRE `!\[[^\]]*\]\(\s*(<[^>]+>|[^"\s)]+).*` `$1` . }}
+      {{- $extracted = strings.TrimPrefix "<" $extracted }}
+      {{- $extracted = strings.TrimSuffix ">" $extracted }}
+      {{- if not (or (strings.HasPrefix $extracted "http://") (strings.HasPrefix $extracted "https://")) }}
+        {{- if not (strings.HasPrefix $extracted "/") }}
+          {{- $extracted = printf "/%s" $extracted }}
+        {{- end }}
+      {{- end }}
+      {{- $imgParams = slice $extracted }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{/* Priority 4: Fallback to site images if still empty */}}
+{{- if and (not $imgParams) (not $imgs) }}
+  {{- with site.Params.images }}
+    {{- $imgParams = first 1 . }}
+  {{- else }}
+    {{- $imgParams = slice "/og-image.png" }}
+  {{- end }}
+{{- end }}
+
+{{/* Parse images parameter list */}}
+{{- range $imgParams }}
+  {{- $img := . }}
+  {{- $url := urls.Parse $img }}
+  {{- if or (eq $url.Scheme "http") (eq $url.Scheme "https") }}
+    {{/* External image */}}
+    {{- $imgs = $imgs | append (dict
+      "RelPermalink" $img
+      "Permalink" $img
+    ) }}
+  {{- else }}
+    {{/* Internal image */}}
+    {{- with $resources.GetMatch $img -}}
+      {{/* Resource match */}}
+      {{- $imgs = $imgs | append (dict
+        "Image" .
+        "RelPermalink" .RelPermalink
+        "Permalink" .Permalink) }}
+    {{- else }}
+      {{- $imgs = $imgs | append (dict
+        "RelPermalink" (relURL $img)
+        "Permalink" ($img | absURL)
+      ) }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{/* Absolute safety fallback: if $imgs is somehow still empty, ensure fallback */}}
+{{- if not $imgs }}
+  {{- $imgs = slice (dict
+    "RelPermalink" (relURL "/og-image.png")
+    "Permalink" ("/og-image.png" | absURL)
+  ) }}
+{{- end }}
+
+{{- return $imgs }}
