@@ -1,0 +1,130 @@
+{{- if .IsHome -}}
+{{- $schema := dict
+  "@context" "https://schema.org"
+  "@type" (site.Params.schema.publisherType | default "Organization" | title)
+  "name" site.Title
+  "url" site.Home.Permalink
+  "description" (site.Params.description | plainify | htmlUnescape | truncate 180)
+-}}
+{{- if (eq (site.Params.schema.publisherType | default "Organization") "Person") -}}
+  {{- $schema = merge $schema (dict "image" (site.Params.assets.favicon | default "favicon.ico" | absURL)) -}}
+{{- else -}}
+  {{- $schema = merge $schema (dict "logo" (site.Params.assets.favicon | default "favicon.ico" | absURL)) -}}
+{{- end -}}
+{{- $sameAs := slice -}}
+{{- if site.Params.schema.sameAs -}}
+  {{- range site.Params.schema.sameAs -}}
+    {{- $sameAs = $sameAs | append (trim . " ") -}}
+  {{- end -}}
+{{- else -}}
+  {{- range site.Params.SocialIcons -}}
+    {{- $sameAs = $sameAs | append (trim .url " ") -}}
+  {{- end -}}
+{{- end -}}
+{{- $schema = merge $schema (dict "sameAs" $sameAs) -}}
+{{- printf `<script type="application/ld+json">%s</script>` ($schema | jsonify) | safeHTML -}}
+{{- else if (or .IsPage .IsSection) -}}
+{{- /* BreadcrumbList */ -}}
+{{- $url := replace .Parent.Permalink (printf "%s" site.Home.Permalink) "" -}}
+{{- $lang_url := strings.TrimPrefix (printf "%s/" .Lang) $url -}}
+{{- $bc_list := split $lang_url "/" -}}
+{{- $scratch := newScratch -}}
+{{- $items := slice -}}
+{{- range $index, $element := $bc_list -}}
+  {{- $scratch.Add "path" (printf "%s/" $element) | safeJS -}}
+  {{- $bc_pg := site.GetPage ($scratch.Get "path") -}}
+  {{- if and $bc_pg (gt (len $element) 0) -}}
+    {{- $items = $items | append (dict
+      "@type" "ListItem"
+      "position" (add 1 $index)
+      "name" $bc_pg.Name
+      "item" $bc_pg.Permalink
+    ) -}}
+  {{- end -}}
+{{- end -}}
+{{- /* Self-page addition */ -}}
+{{- $items = $items | append (dict
+  "@type" "ListItem"
+  "position" (len $bc_list)
+  "name" .Name
+  "item" .Permalink
+) -}}
+{{- $breadcrumb := dict
+  "@context" "https://schema.org"
+  "@type" "BreadcrumbList"
+  "itemListElement" $items
+-}}
+{{- printf `<script type="application/ld+json">%s</script>` ($breadcrumb | jsonify) | safeHTML -}}
+{{- if .IsPage -}}
+{{- /* BlogPosting */ -}}
+{{- $description := "" -}}
+{{- with .Description | plainify | htmlUnescape -}}
+  {{- $description = . -}}
+{{- else -}}
+  {{- $description = .Summary | plainify | htmlUnescape -}}
+{{- end -}}
+{{- $keywords := slice -}}
+{{- if .Params.keywords -}}
+  {{- range .Params.keywords -}}
+    {{- $keywords = $keywords | append . -}}
+  {{- end -}}
+{{- else -}}
+  {{- range .Params.tags -}}
+    {{- $keywords = $keywords | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- $articleBody := .Content | safeJS | htmlUnescape | plainify -}}
+{{- $schema := dict
+  "@context" "https://schema.org"
+  "@type" "BlogPosting"
+  "headline" (.Title | plainify)
+  "name" (.Title | plainify)
+  "description" $description
+  "keywords" $keywords
+  "articleBody" $articleBody
+  "wordCount" (printf "%d" .WordCount)
+  "inLanguage" (.Language.Lang | default "en-us")
+-}}
+{{- /* Image */ -}}
+{{- if .Params.cover.image -}}
+  {{- if ne .Params.cover.relative true -}}
+    {{- $schema = merge $schema (dict "image" (.Params.cover.image | absURL)) -}}
+  {{- else -}}
+    {{- $schema = merge $schema (dict "image" ((path.Join .RelPermalink .Params.cover.image) | absURL)) -}}
+  {{- end -}}
+{{- else -}}
+  {{- $images := partial "templates/_funcs/get-page-images" . -}}
+  {{- with index $images 0 -}}
+    {{- $schema = merge $schema (dict "image" .Permalink) -}}
+  {{- end -}}
+{{- end -}}
+{{- $schema = merge $schema (dict
+  "datePublished" (.PublishDate.Format "2006-01-02T15:04:05Z07:00")
+  "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+) -}}
+{{- /* Author */ -}}
+{{- with (.Params.author | default site.Params.author) -}}
+  {{- if or (eq (printf "%T" .) "[]string") (eq (printf "%T" .) "[]interface {}") -}}
+    {{- $authors := slice -}}
+    {{- range . -}}
+      {{- $authors = $authors | append (dict "@type" "Person" "name" .) -}}
+    {{- end -}}
+    {{- $schema = merge $schema (dict "author" $authors) -}}
+  {{- else -}}
+    {{- $schema = merge $schema (dict "author" (dict "@type" "Person" "name" .)) -}}
+  {{- end -}}
+{{- end -}}
+{{- $schema = merge $schema (dict
+  "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+  "publisher" (dict
+    "@type" (site.Params.schema.publisherType | default "Organization" | title)
+    "name" site.Title
+    "logo" (dict
+      "@type" "ImageObject"
+      "url" (site.Params.assets.favicon | default "favicon.ico" | absURL)
+    )
+  )
+) -}}
+{{- printf `<script type="application/ld+json">%s</script>` ($schema | jsonify) | safeHTML -}}
+{{- end -}}{{/* .IsPage end */}}
+{{- end -}}
