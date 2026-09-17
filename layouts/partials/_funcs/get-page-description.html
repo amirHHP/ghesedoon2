@@ -1,0 +1,78 @@
+{{- $desc := "" -}}
+
+{{- with .Description | plainify | htmlUnescape | chomp -}}
+  {{- $desc = . -}}
+{{- end -}}
+
+{{- if not $desc -}}
+  {{- if .IsHome -}}
+    {{- $desc = site.Params.description -}}
+  {{- else if eq .Kind "term" -}}
+    {{- $cleanTitle := trim .Title "- " -}}
+    {{- if not $cleanTitle -}}
+      {{- $cleanTitle = .Data.Term | default .Title -}}
+    {{- end -}}
+    {{- if eq .Language.Lang "en" -}}
+      {{- if or (eq .Data.Singular "category") (eq .Data.Plural "categories") -}}
+        {{- $desc = printf "Discover the best children's stories in the %s category on Ghesedoon. Enjoy magical illustrated bedtime tales and educational adventures for kids." $cleanTitle -}}
+      {{- else -}}
+        {{- $desc = printf "Explore wonderful children's stories and fairy tales about %s on Ghesedoon. Enjoy magical bedtime adventures and inspiring tales for young kids." (lower $cleanTitle) -}}
+      {{- end -}}
+    {{- else -}}
+      {{- if or (eq .Data.Singular "category") (eq .Data.Plural "categories") -}}
+        {{- $desc = printf "مجموعه بهترین قصه‌ها و داستان‌های کودکانه قصه دون در دسته‌بندی «%s»؛ داستان‌های جذاب، آموزنده و رویایی همراه با تصاویر زیبا برای فرزندان دلبند شما." $cleanTitle -}}
+      {{- else -}}
+        {{- $desc = printf "مجموعه زیباترین قصه‌ها و داستان‌های کودکانه با موضوع «%s» در قصه دون. داستان‌های جذاب، آموزنده و سرگرم‌کننده برای پرورش خلاقیت و تخیل کودکان." $cleanTitle -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else if eq .Kind "taxonomy" -}}
+    {{- if eq .Language.Lang "en" -}}
+      {{- if or (eq .Data.Singular "category") (eq .Data.Plural "categories") -}}
+        {{- $desc = "Explore story categories and age groups on Ghesedoon. Find the best educational, fun, and illustrated tales tailored to your child's age and interests." -}}
+      {{- else -}}
+        {{- $desc = "Browse all story tags and themes on Ghesedoon. Discover magical children's tales by topic, from animals and fairy tales to bedtime adventures and wonder." -}}
+      {{- end -}}
+    {{- else -}}
+      {{- if or (eq .Data.Singular "category") (eq .Data.Plural "categories") -}}
+        {{- $desc = "دسته‌بندی موضوعی و رده‌بندی سنی قصه‌های کودکانه در قصه دون؛ بهترین داستان‌های آموزنده و سرگرم‌کننده را متناسب با سن و روحیات فرزند خود انتخاب کنید." -}}
+      {{- else -}}
+        {{- $desc = "فهرست برچسب‌ها و موضوعات مختلف قصه‌های کودکانه قصه دون؛ داستان‌های شیرین حیوانات، افسانه‌های هیجان‌انگیز، قصه‌های شب و ماجراهای جذاب برای کودکان." -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else if or .IsSection (eq .Kind "section") -}}
+    {{- if eq .Language.Lang "en" -}}
+      {{- $desc = "Explore our complete collection of delightful children's stories, bedtime tales, and illustrated adventures at Ghesedoon. Inspiring stories for young readers." -}}
+    {{- else -}}
+      {{- $desc = "مجموعه کامل قصه‌ها و داستان‌های جذاب کودکانه در قصه دون؛ داستان‌های آموزنده، ماجراجویانه و رویایی با تصویرگری‌های زیبا برای اوقات فراغت و خواب آرام کودک." -}}
+    {{- end -}}
+  {{- else if eq .Layout "search" -}}
+    {{- if eq .Language.Lang "en" -}}
+      {{- $desc = "Search hundreds of illustrated children's stories and bedtime fairy tales on Ghesedoon. Find the perfect tale by title, theme, character, or topic easily." -}}
+    {{- else -}}
+      {{- $desc = "در میان صدها قصه و داستان کودکانه قصه دون جستجو کنید؛ داستان‌های شب، ماجراجویی‌های حیوانات، افسانه‌ها و قصه‌های آموزنده را بر اساس عنوان و موضوع بیابید." -}}
+    {{- end -}}
+  {{- else if .IsPage -}}
+    {{- with .Summary | plainify | htmlUnescape -}}
+      {{- $cleaned := replaceRE "\\s+" " " . -}}
+      {{- $desc = trim $cleaned " " | truncate 155 -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if not $desc -}}
+  {{- $desc = site.Params.description -}}
+{{- end -}}
+
+{{- $desc = $desc | plainify | htmlUnescape -}}
+{{- $desc = replaceRE "\\s+" " " $desc -}}
+{{- $desc = trim $desc " " -}}
+
+{{- /* Ensure length does not exceed 160 chars and is not below 110 chars */ -}}
+{{- if gt (countrunes $desc) 160 -}}
+  {{- $desc = truncate 158 $desc -}}
+{{- end -}}
+{{- if lt (countrunes $desc) 110 -}}
+  {{- $desc = printf "%s - %s" $desc site.Params.description | truncate 158 -}}
+{{- end -}}
+
+{{- return $desc -}}

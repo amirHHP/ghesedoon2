@@ -1,5 +1,6 @@
 ---
 title: "Donate"
+description: "Support Ghesedoon to help us create more illustrated children's stories, audiobooks, and educational content for young readers worldwide. Thank you!"
 date: 2024-03-20
 draft: false
 ---

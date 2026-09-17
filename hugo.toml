@@ -46,7 +46,7 @@ defaultContentLanguageInSubdir = false
 
     [languages.fa.params]
       rtl = true
-      description = "قصه‌های کودکانه قصه دون"
+      description = "مجموعه قصه‌ها و داستان‌های آموزنده و جذاب کودکانه برای کودکان فارسی‌زبان همراه با تصاویر زیبا، داستان شب و لالایی برای رشد و سرگرمی فرزند شما در قصه دون."
 
     [[languages.fa.menu.main]]
       identifier = "search"
@@ -75,7 +75,7 @@ defaultContentLanguageInSubdir = false
 
     [languages.en.params]
       rtl = false
-      description = "Children's stories from Ghesedoon"
+      description = "Discover delightful illustrated stories, bedtime tales, and educational adventures for children of all ages. Explore a magical world of stories at Ghesedoon."
 
     [[languages.en.menu.main]]
       identifier = "search"

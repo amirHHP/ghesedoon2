@@ -6,7 +6,8 @@
 
 <meta property="og:title" content="{{ or .Title site.Title site.Params.title | plainify }}">
 
-{{- with or .Description .Summary site.Params.description | plainify | htmlUnescape | chomp }}
+{{- $pageDescription := partial "_funcs/get-page-description" . -}}
+{{- with $pageDescription }}
   <meta property="og:description" content="{{ . }}">
 {{- end }}
 

@@ -6,7 +6,10 @@
 <meta name="twitter:card" content="summary">
 {{- end -}}
 <meta name="twitter:title" content="{{ or .Title site.Title site.Params.title | plainify }}">
-<meta name="twitter:description" content="{{ or .Description .Summary site.Params.description | plainify | htmlUnescape | chomp }}">
+{{- $pageDescription := partial "_funcs/get-page-description" . -}}
+{{- with $pageDescription }}
+<meta name="twitter:description" content="{{ . }}">
+{{- end }}
 
 {{- $twitterSite := "" }}
 {{- with site.Params.social }}
