@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <linearGradient id="pageGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FEF3C7" />
+    </linearGradient>
+    <linearGradient id="goldPages" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D" />
+      <stop offset="100%" stop-color="#B45309" />
+    </linearGradient>
+  </defs>
+
+  <!-- Stars & Magic Sparkles -->
+  <g id="sparkles">
+    <!-- Top Center Main Star -->
+    <path d="M 256 55 L 265 77 L 288 80 L 271 95 L 276 118 L 256 106 L 236 118 L 241 95 L 224 80 L 247 77 Z" fill="url(#goldGrad)" />
+    
+    <!-- Left Top Stars -->
+    <path d="M 180 90 L 186 105 L 202 107 L 190 118 L 194 134 L 180 125 L 166 134 L 170 118 L 158 107 L 174 105 Z" fill="url(#goldGrad)" transform="scale(0.85) translate(30, 20)" />
+    <path d="M 125 155 L 130 167 L 143 168 L 133 177 L 136 190 L 125 183 L 114 190 L 117 177 L 107 168 L 120 167 Z" fill="url(#goldGrad)" transform="scale(0.85) translate(25, 25)" />
+
+    <!-- Right Top Stars -->
+    <path d="M 330 85 L 336 100 L 352 102 L 340 113 L 344 129 L 330 120 L 316 129 L 320 113 L 308 102 L 324 100 Z" fill="url(#goldGrad)" transform="scale(0.85) translate(25, 20)" />
+    <path d="M 380 150 L 385 162 L 398 163 L 388 172 L 391 185 L 380 178 L 369 185 L 372 172 L 362 163 L 375 162 Z" fill="url(#goldGrad)" transform="scale(0.85) translate(35, 25)" />
+
+    <!-- Tiny Magic Dots and Swooshes -->
+    <circle cx="150" cy="140" r="4.5" fill="#38BDF8" />
+    <circle cx="360" cy="135" r="4.5" fill="#38BDF8" />
+    <circle cx="210" cy="90" r="4" fill="#FB7185" />
+    <circle cx="305" cy="85" r="4" fill="#FB7185" />
+    <circle cx="110" cy="220" r="3.5" fill="#FBBF24" />
+    <circle cx="400" cy="210" r="3.5" fill="#FBBF24" />
+
+    <!-- Magic swoosh dashes -->
+    <path d="M 195 95 C 185 110 180 130 175 145" stroke="#FB7185" stroke-width="4.5" stroke-linecap="round" fill="none" />
+    <path d="M 320 90 C 330 105 338 125 342 140" stroke="#38BDF8" stroke-width="4.5" stroke-linecap="round" fill="none" />
+    <path d="M 215 130 C 205 145 200 165 205 180" stroke="#38BDF8" stroke-width="4.5" stroke-linecap="round" fill="none" />
+    <path d="M 300 125 C 310 140 318 160 312 175" stroke="#FB7185" stroke-width="4.5" stroke-linecap="round" fill="none" />
+  </g>
+
+  <!-- Open Storybook Base -->
+  <!-- Outer Book Cover (Dark Navy) -->
+  <path d="M 256 425 C 240 435 220 440 190 436 C 120 426 70 412 55 408 C 48 406 44 399 46 392 L 80 255 C 82 248 88 244 95 245 C 135 252 195 264 245 238 C 252 234 260 234 267 238 C 317 264 377 252 417 245 C 424 244 430 248 432 255 L 466 392 C 468 399 464 406 457 408 C 442 412 392 426 322 436 C 292 440 272 435 256 425 Z"
+        fill="#1C274C" stroke="#161F3D" stroke-width="6" stroke-linejoin="round" />
+
+  <!-- Lower Golden Pages Block -->
+  <path d="M 256 415 C 235 423 205 425 175 420 C 120 410 82 399 70 395 L 77 365 C 100 372 145 383 195 381 C 220 380 242 372 256 364 C 270 372 292 380 317 381 C 367 383 412 372 435 365 L 442 395 C 430 399 392 410 337 420 C 307 425 277 423 256 415 Z"
+        fill="url(#goldPages)" />
+
+  <!-- Golden Spine Ribbon Loop at Bottom -->
+  <path d="M 240 422 C 240 445 272 445 272 422 Z" fill="#D97706" stroke="#1C274C" stroke-width="5" />
+
+  <!-- Main Open Story Pages (Layer 1 - Cream) -->
+  <path d="M 256 370 C 238 360 205 348 160 348 C 110 348 80 365 72 360 L 88 260 C 98 256 128 248 175 250 C 215 252 245 268 256 278 C 267 268 297 252 337 250 C 384 248 414 256 424 260 L 440 360 C 432 365 402 348 352 348 C 307 348 274 360 256 370 Z"
+        fill="url(#pageGrad)" stroke="#1C274C" stroke-width="7" stroke-linejoin="round" />
+
+  <!-- Page Swirl Curves & Details (Left Page) -->
+  <path d="M 98 335 C 130 342 170 338 200 315 C 218 300 215 282 195 282 C 175 282 165 300 185 308"
+        fill="none" stroke="#1C274C" stroke-width="6.5" stroke-linecap="round" />
+
+  <!-- Page Swirl Curves & Details (Right Page) -->
+  <path d="M 414 335 C 382 342 342 338 312 315 C 294 300 297 282 317 282 C 337 282 347 300 327 308"
+        fill="none" stroke="#1C274C" stroke-width="6.5" stroke-linecap="round" />
+
+  <!-- Center Spine Glow Line -->
+  <line x1="256" y1="285" x2="256" y2="385" stroke="#F59E0B" stroke-width="5" stroke-linecap="round" />
+
+  <!-- Golden Stars Rising From Pages -->
+  <path d="M 165 275 L 168 283 L 176 284 L 170 290 L 172 298 L 165 294 L 158 298 L 160 290 L 154 284 L 162 283 Z" fill="#F59E0B" />
+  <path d="M 347 275 L 350 283 L 358 284 L 352 290 L 354 298 L 347 294 L 340 298 L 342 290 L 336 284 L 344 283 Z" fill="#F59E0B" />
+
+  <!-- The Friendly Smiling Crescent Moon -->
+  <g id="smilingMoon">
+    <!-- Golden Crescent Moon with Outer Stroke -->
+    <path d="M 270 135 C 210 145 170 200 180 265 C 190 325 245 365 305 350 C 335 342 358 322 372 295 C 330 310 270 295 248 245 C 230 205 240 160 270 135 Z"
+          fill="url(#goldGrad)" stroke="#1C274C" stroke-width="7.5" stroke-linejoin="round" />
+
+    <!-- Cute Eyes: Gentle Smiling Arcs -->
+    <!-- Left Eye -->
+    <path d="M 205 238 C 210 231 220 231 225 238" fill="none" stroke="#1C274C" stroke-width="6" stroke-linecap="round" />
+    <!-- Right Eye -->
+    <path d="M 230 226 C 235 219 245 219 250 226" fill="none" stroke="#1C274C" stroke-width="6" stroke-linecap="round" />
+
+    <!-- Cute Warm Smile -->
+    <path d="M 218 262 C 228 274 246 270 252 258" fill="none" stroke="#1C274C" stroke-width="6" stroke-linecap="round" />
+
+    <!-- Rosy Cheek (Soft Pink Dot) -->
+    <ellipse cx="206" cy="254" rx="6" ry="4" fill="#FDA4AF" opacity="0.8" />
+
+    <!-- Moon Highlight -->
+    <path d="M 255 152 C 220 170 200 205 202 245" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+  </g>
+</svg>

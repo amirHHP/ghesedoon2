@@ -27,6 +27,10 @@ defaultContentLanguageInSubdir = false
   mainSections = ["posts"]
   images = ["/og-image.png"]
 
+  [params.label]
+    icon = "/logo.png"
+    iconHeight = 32
+
   [params.cover]
     hiddenInSingle = true
 

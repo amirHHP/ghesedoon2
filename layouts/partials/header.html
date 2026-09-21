@@ -41,6 +41,12 @@
             {{- $label_text := (site.Params.label.text | default site.Title) }}
             {{- if site.Title }}
             <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
+                {{- if site.Params.label.icon }}
+                <img src="{{ site.Params.label.icon | absURL }}" alt="logo" aria-label="logo"
+                    height="{{ site.Params.label.iconHeight | default "32" }}"
+                    width="{{ site.Params.label.iconHeight | default "32" }}"
+                    style="display: inline-block; vertical-align: middle; margin-inline-end: 8px;">
+                {{- end }}
                 {{- $label_text -}}
             </a>
             {{- end }}
