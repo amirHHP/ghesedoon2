@@ -1,0 +1,141 @@
+{{- $paymentUrl := site.Params.paymentUrl | default "https://pay.noxte.ir/link/780257" }}
+{{- $faStory := "" }}
+{{- range .Translations }}
+  {{- if eq .Lang "fa" }}
+    {{- $faStory = . }}
+  {{- end }}
+{{- end }}
+
+<div id="ghesedoon-paywall" class="paywall-wrapper" dir="rtl">
+    <div class="paywall-card">
+        <div class="paywall-badge">
+            <span class="badge-icon">🔒</span>
+            <span class="badge-text">نسخه ویژه تقویت زبان انگلیسی (VIP)</span>
+        </div>
+
+        <h2 class="paywall-title">قصه صوتی و متنی به زبان انگلیسی</h2>
+        <p class="paywall-lead">
+            این داستان به زبان انگلیسی همراه با <strong>فایل صوتی گوینده بومی (Native)</strong>، ویژه آموزش و تقویت مهارت‌های شنیداری (Listening)، خواندن و یادگیری لغات برای کودکان و زبان‌آموزان طراحی شده است.
+        </p>
+
+        <div class="paywall-features">
+            <div class="feature-item">
+                <span class="feature-icon">🎧</span>
+                <div class="feature-text">
+                    <strong>تقویت مهارت شنیداری:</strong> فایل صوتی اختصاصی با تلفظ طبیعی، لحن جذاب و قابل فهم.
+                </div>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">📖</span>
+                <div class="feature-text">
+                    <strong>متن هماهنگ و روان:</strong> واژگان مناسب برای ریدینگ و گسترش دایره کلمات.
+                </div>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🔄</span>
+                <div class="feature-text">
+                    <strong>تطبیق کامل با نسخه فارسی:</strong> یادگیری سریع معنای عبارات با مقایسه نسخه فارسی همین داستان.
+                </div>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">⭐</span>
+                <div class="feature-text">
+                    <strong>دسترسی نامحدود:</strong> دسترسی به آرشیو کامل بیش از ۲۰۰ قصه انگلیسی با یک‌بار پرداخت.
+                </div>
+            </div>
+        </div>
+
+        <div class="paywall-actions">
+            <a href="{{ $paymentUrl }}" target="_blank" rel="noopener noreferrer" class="btn-paywall-primary">
+                <span>💳 خرید دسترسی و فعال‌سازی فوری</span>
+                <small>پرداخت امن ریالی از طریق زرین‌پال</small>
+            </a>
+
+            {{- if $faStory }}
+            <a href="{{ $faStory.Permalink }}" class="btn-paywall-secondary">
+                <span>📖 مطالعه رایگان نسخه فارسی همین داستان</span>
+            </a>
+            {{- end }}
+        </div>
+
+        <div class="paywall-activation-section">
+            <button type="button" class="btn-toggle-activation" onclick="toggleActivationForm()">
+                قبلاً اشتراک خریده‌اید؟ فعال‌سازی با کد دسترسی یا شماره پیگیری
+            </button>
+            <div id="activation-form-container" class="activation-form" style="display: none;">
+                <p class="activation-note">کد فعال‌سازی یا شماره پیگیری تراکنش خود را وارد کنید:</p>
+                <form onsubmit="return activateGhesedoonAccess(event)" class="activation-input-group">
+                    <input type="text" id="ghesedoon-license-code" placeholder="کد فعال‌سازی یا شماره پیگیری..." required autocomplete="off" />
+                    <button type="submit" class="btn-activate-submit">فعال‌سازی</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ghesedoon-unlocked-banner" class="unlocked-banner" style="display: none;" dir="rtl">
+    <div class="unlocked-content">
+        <span>✨ <strong>اشتراک شما فعال است!</strong> شما دسترسی نامحدود به تمام قصه‌ها و فایل‌های صوتی انگلیسی دارید.</span>
+        <button type="button" class="btn-unlocked-logout" onclick="logoutGhesedoonAccess()">خروج از حساب</button>
+    </div>
+</div>
+
+<script>
+    function checkGhesedoonAccess() {
+        try {
+            var access = localStorage.getItem('ghesedoon_en_access');
+            var isGranted = (access === 'granted');
+            var pw = document.getElementById('ghesedoon-paywall');
+            var unlockedBanner = document.getElementById('ghesedoon-unlocked-banner');
+            var premiumContent = document.getElementById('ghesedoon-premium-content');
+            var audioSection = document.getElementById('ghesedoon-story-audio');
+
+            if (isGranted) {
+                if (pw) pw.style.display = 'none';
+                if (unlockedBanner) unlockedBanner.style.display = 'block';
+                if (premiumContent) premiumContent.style.display = 'block';
+                if (audioSection) audioSection.style.display = 'block';
+            } else {
+                if (pw) pw.style.display = 'block';
+                if (unlockedBanner) unlockedBanner.style.display = 'none';
+                if (premiumContent) premiumContent.style.display = 'none';
+                if (audioSection) audioSection.style.display = 'none';
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    function toggleActivationForm() {
+        var form = document.getElementById('activation-form-container');
+        if (form) {
+            form.style.display = (form.style.display === 'none' || form.style.display === '') ? 'block' : 'none';
+        }
+    }
+
+    function activateGhesedoonAccess(e) {
+        if (e) e.preventDefault();
+        var input = document.getElementById('ghesedoon-license-code');
+        var code = input ? input.value.trim() : '';
+        if (code) {
+            localStorage.setItem('ghesedoon_en_access', 'granted');
+            localStorage.setItem('ghesedoon_license_code', code);
+            alert('اشتراک شما با موفقیت فعال شد! هم‌اکنون به متن کامل و فایل‌های صوتی انگلیسی دسترسی دارید.');
+            checkGhesedoonAccess();
+        } else {
+            alert('لطفاً کد فعال‌سازی یا شماره پیگیری خود را وارد کنید.');
+        }
+        return false;
+    }
+
+    function logoutGhesedoonAccess() {
+        if (confirm('آیا مایلید از اشتراک خود خارج شوید؟')) {
+            localStorage.removeItem('ghesedoon_en_access');
+            localStorage.removeItem('ghesedoon_license_code');
+            checkGhesedoonAccess();
+        }
+    }
+
+    // Run check immediately
+    checkGhesedoonAccess();
+</script>

@@ -3,6 +3,11 @@ theme = 'PaperMod'
 defaultContentLanguage = 'fa'
 defaultContentLanguageInSubdir = false
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
@@ -26,6 +31,7 @@ defaultContentLanguageInSubdir = false
   displayFullLangName = true
   mainSections = ["posts"]
   images = ["/og-image.png"]
+  paymentUrl = "https://pay.noxte.ir/link/780257"
 
   [params.label]
     icon = "/logo.png"
@@ -65,6 +71,12 @@ defaultContentLanguageInSubdir = false
       weight = 10
 
     [[languages.fa.menu.main]]
+      identifier = "premium"
+      name = "خرید نسخه انگلیسی 🇬🇧"
+      url = "https://pay.noxte.ir/link/780257"
+      weight = 15
+
+    [[languages.fa.menu.main]]
       identifier = "donate"
       name = "حمایت مالی"
       url = "/donate/"
@@ -92,6 +104,12 @@ defaultContentLanguageInSubdir = false
       name = "Tags"
       url = "/tags/"
       weight = 10
+
+    [[languages.en.menu.main]]
+      identifier = "premium"
+      name = "Get Access 💳"
+      url = "https://pay.noxte.ir/link/780257"
+      weight = 15
 
     [[languages.en.menu.main]]
       identifier = "donate"

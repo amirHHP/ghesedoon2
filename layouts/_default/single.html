@@ -36,11 +36,23 @@
   {{- end }}
 
   {{- if .Content }}
+  {{- if and (eq .Lang "en") (eq .Type "posts") }}
+  <div id="ghesedoon-premium-content" class="post-content ghesedoon-premium-content" style="display: none;">
+    {{- if not (.Param "disableAnchoredHeadings") }}
+    {{- partial "anchored_headings.html" .Content -}}
+    {{- else }}{{ .Content }}{{ end }}
+  </div>
+  {{- partial "paywall.html" . }}
+  {{- else }}
   <div class="post-content">
     {{- if not (.Param "disableAnchoredHeadings") }}
     {{- partial "anchored_headings.html" .Content -}}
     {{- else }}{{ .Content }}{{ end }}
   </div>
+  {{- if and (eq .Lang "fa") (eq .Type "posts") }}
+    {{- partial "en_promo_box.html" . }}
+  {{- end }}
+  {{- end }}
   {{- end }}
 
   <footer class="post-footer">

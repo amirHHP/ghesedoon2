@@ -11,7 +11,7 @@
     {{- $src = printf "%s/%s/%s.mp3" (strings.TrimSuffix site.Params.audioBaseURL "/") .Lang $id }}
 {{- end }}
 {{- if $src }}
-<section class="story-audio" aria-label="{{ i18n "listen_story" | default "Listen to the story" }}">
+<section id="ghesedoon-story-audio" class="story-audio{{ if eq .Lang "en" }} en-premium-audio{{ end }}"{{ if eq .Lang "en" }} style="display: none;"{{ end }} aria-label="{{ i18n "listen_story" | default "Listen to the story" }}">
     <p class="story-audio-label">{{ i18n "listen_story" | default "Listen to the story" }}</p>
     <audio controls preload="metadata" src="{{ $src }}">
         <a href="{{ $src }}">{{ i18n "listen_story" | default "Listen to the story" }}</a>

@@ -1,0 +1,35 @@
+{{- $paymentUrl := site.Params.paymentUrl | default "https://pay.noxte.ir/link/780257" }}
+{{- $enStory := "" }}
+{{- range .Translations }}
+  {{- if eq .Lang "en" }}
+    {{- $enStory = . }}
+  {{- end }}
+{{- end }}
+
+<div class="en-promo-box" dir="rtl">
+    <div class="en-promo-content">
+        <div class="en-promo-header">
+            <span class="en-promo-icon">🎧 🇬🇧</span>
+            <div class="en-promo-title-group">
+                <h3 class="en-promo-title">می‌خوای با این داستان، زبانت رو تقویت کنی؟</h3>
+                <p class="en-promo-subtitle">آموزش جذاب زبان انگلیسی با قصه‌های صوتی و متنی</p>
+            </div>
+        </div>
+
+        <p class="en-promo-desc">
+            نسخه انگلیسی این قصه به همراه <strong>فایل صوتی اختصاصی با صدای گوینده نیتیو</strong> آماده شده تا بتوانید به صورت همزمان متن را بخوانید، تلفظ صحیح را بشنوید و دایره لغات انگلیسی خود را در قالب داستان تقویت کنید.
+        </p>
+
+        <div class="en-promo-actions">
+            {{- if $enStory }}
+            <a href="{{ $enStory.Permalink }}" class="btn-promo-primary">
+                <span>شنیدن و خواندن نسخه انگلیسی</span>
+                <span class="btn-arrow">←</span>
+            </a>
+            {{- end }}
+            <a href="{{ $paymentUrl }}" target="_blank" rel="noopener noreferrer" class="btn-promo-secondary">
+                <span>خرید اشتراک نامحدود (زرین‌پال)</span>
+            </a>
+        </div>
+    </div>
+</div>
