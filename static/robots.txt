@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ghesedoon.ir/sitemap.xml
+Sitemap: https://ghesedoon.ir/fa/sitemap.xml
+Sitemap: https://ghesedoon.ir/en/sitemap.xml

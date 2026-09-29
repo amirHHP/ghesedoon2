@@ -2,6 +2,14 @@ baseURL = 'https://ghesedoon.ir/'
 theme = 'PaperMod'
 defaultContentLanguage = 'fa'
 defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+enableGitInfo = true
+
+[frontmatter]
+  date = [":git", "date", "publishDate", "lastmod"]
+  publishDate = [":git", "publishDate", "date"]
+  lastmod = [":git", "lastmod", "date", "publishDate"]
+
 
 [markup]
   [markup.goldmark]
@@ -32,6 +40,16 @@ defaultContentLanguageInSubdir = false
   mainSections = ["posts"]
   images = ["/og-image.png"]
   paymentUrl = "https://pay.noxte.ir/link/780257"
+  author = "قصه دون"
+
+  [params.assets]
+    favicon = "/favicon.ico"
+    favicon16x16 = "/favicon-16x16.png"
+    favicon32x32 = "/favicon-32x32.png"
+    apple_touch_icon = "/apple-touch-icon.png"
+    safari_pinned_tab = "/safari-pinned-tab.svg"
+    logo = "/logo.png"
+
 
   [params.label]
     icon = "/logo.png"
@@ -56,6 +74,7 @@ defaultContentLanguageInSubdir = false
 
     [languages.fa.params]
       rtl = true
+      author = "قصه دون"
       description = "مجموعه قصه‌ها و داستان‌های آموزنده و جذاب کودکانه برای کودکان فارسی‌زبان همراه با تصاویر زیبا، داستان شب و لالایی برای رشد و سرگرمی فرزند شما در قصه دون."
 
     [[languages.fa.menu.main]]
@@ -91,6 +110,7 @@ defaultContentLanguageInSubdir = false
 
     [languages.en.params]
       rtl = false
+      author = "Ghesedoon"
       description = "Discover delightful illustrated stories, bedtime tales, and educational adventures for children of all ages. Explore a magical world of stories at Ghesedoon."
 
     [[languages.en.menu.main]]
